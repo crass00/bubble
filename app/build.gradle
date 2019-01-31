@@ -1,18 +1,13 @@
 apply plugin: 'com.android.application'
 
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.nkanaev.comics"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 27
 
         versionName "1.6.0"
         versionCode 7
@@ -20,8 +15,7 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix '.debug'
-            versionNameSuffix '-DEBUG'
+
         }
     }
 
@@ -36,13 +30,18 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:support-v4:22.2.1'
-    compile 'com.android.support:cardview-v7:22.2.1'
-    compile 'com.android.support:recyclerview-v7:22.2.1'
-    compile 'com.android.support:design:22.2.1'
-    compile 'com.github.junrar:junrar:0.7'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'org.apache.commons:commons-compress:1.12'
-    compile 'org.tukaani:xz:1.5'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'org.apache.commons:commons-compress:1.16'
+    implementation 'org.tukaani:xz:1.5'
+    implementation('com.github.junrar:junrar:0.7', {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    })
+    implementation files('src/libs/cpdetector_1.0.10.jar')
+    implementation files('src/libs/antlr-2.7.4.jar')
+    implementation files('src/libs/chardet-1.0.jar')
+    implementation files('src/libs/jargs-1.0.jar')
 }

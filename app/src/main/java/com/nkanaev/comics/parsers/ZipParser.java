@@ -1,31 +1,31 @@
 package com.nkanaev.comics.parsers;
 
+import com.nkanaev.comics.managers.NaturalOrderComparator;
+import com.nkanaev.comics.managers.Utils;
+
+import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
+import org.apache.commons.compress.archivers.zip.ZipFile;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-
-import com.nkanaev.comics.managers.NaturalOrderComparator;
-import com.nkanaev.comics.managers.Utils;
 
 
 public class ZipParser implements Parser {
     private ZipFile mZipFile;
-    private ArrayList<ZipEntry> mEntries;
+    private ArrayList<ZipArchiveEntry> mEntries;
 
     @Override
     public void parse(File file) throws IOException {
-        mZipFile = new ZipFile(file.getAbsolutePath());
-        mEntries = new ArrayList<ZipEntry>();
+        mZipFile = new ZipFile(file.getAbsolutePath(), getCharset(file));
+        mEntries = new ArrayList<>();
 
-        Enumeration<? extends ZipEntry> e = mZipFile.entries();
+        Enumeration<? extends ZipArchiveEntry> e = mZipFile.getEntries();
         while (e.hasMoreElements()) {
-            ZipEntry ze = e.nextElement();
+            ZipArchiveEntry ze = e.nextElement();
             if (!ze.isDirectory() && Utils.isImage(ze.getName())) {
                 mEntries.add(ze);
             }
@@ -34,15 +34,22 @@ public class ZipParser implements Parser {
         Collections.sort(mEntries, new NaturalOrderComparator() {
             @Override
             public String stringValue(Object o) {
-                return ((ZipEntry) o).getName();
+                return ((ZipArchiveEntry) o).getName();
             }
         });
     }
+
+    public String getCharset(File file) {//TODO 侦测效率低下
+//        return FileCharsetDetector.getFileEncode(file);
+        return "GBK";
+    }
+
 
     @Override
     public int numPages() {
         return mEntries.size();
     }
+
 
     @Override
     public InputStream getPage(int num) throws IOException {

@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         if (savedInstanceState == null) {
             setFragment(new LibraryFragment());
-            setNavBar();
             mCurrentNavItem = R.id.drawer_menu_library;
             navigationView.getMenu().findItem(mCurrentNavItem).setChecked(true);
+//            setNavBar();
         }
         else {
             onBackStackChanged();  // force-call method to ensure indicator is shown properly
