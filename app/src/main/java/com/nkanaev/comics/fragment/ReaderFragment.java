@@ -338,12 +338,13 @@ public class ReaderFragment extends Fragment implements View.OnTouchListener {
     }
 
     private void setCurrentPage(int page) {
-        setCurrentPage(page, true);
+        // TODO: Handle default animation flag in prefs (eink devices)
+        setCurrentPage(page, false);
     }
 
     private void setCurrentPage(int page, boolean animated) {
         if (mIsLeftToRight) {
-            mViewPager.setCurrentItem(page - 1);
+            mViewPager.setCurrentItem(page - 1, animated);
             mPageSeekBar.setProgress(page - 1);
         }
         else {
@@ -356,6 +357,36 @@ public class ReaderFragment extends Fragment implements View.OnTouchListener {
                 .toString();
 
         mPageNavTextView.setText(navPage);
+    }
+
+    public void pageLeft(boolean animated) {
+        if (mIsLeftToRight) {
+            previousPage(animated);
+        }
+        else {
+            nextPage(animated);
+        }
+    }
+    public void pageRight(boolean animated) {
+        if (mIsLeftToRight) {
+            nextPage(animated);
+        }
+        else {
+            previousPage(animated);
+        }
+    }
+
+    public void nextPage(boolean animated) {
+        if (getCurrentPage() == mViewPager.getAdapter().getCount())
+            hitEnding();
+        else
+            setCurrentPage(getCurrentPage() + 1, animated);
+    }
+    public void previousPage(boolean animated) {
+    if (getCurrentPage() == 1)
+        hitBeginning();
+    else
+        setCurrentPage(getCurrentPage() - 1, animated);
     }
 
     private class ComicPagerAdapter extends PagerAdapter {
@@ -500,33 +531,11 @@ public class ReaderFragment extends Fragment implements View.OnTouchListener {
 
             // tap left edge
             if (x < (float) mViewPager.getWidth() / 3) {
-                if (mIsLeftToRight) {
-                    if (getCurrentPage() == 1)
-                        hitBeginning();
-                    else
-                        setCurrentPage(getCurrentPage() - 1);
-                }
-                else {
-                    if (getCurrentPage() == mViewPager.getAdapter().getCount())
-                        hitEnding();
-                    else
-                        setCurrentPage(getCurrentPage() + 1);
-                }
+                pageLeft(false);
             }
             // tap right edge
             else if (x > (float) mViewPager.getWidth() / 3 * 2) {
-                if (mIsLeftToRight) {
-                    if (getCurrentPage() == mViewPager.getAdapter().getCount())
-                        hitEnding();
-                    else
-                        setCurrentPage(getCurrentPage() + 1);
-                }
-                else {
-                    if (getCurrentPage() == 1)
-                        hitBeginning();
-                    else
-                        setCurrentPage(getCurrentPage() - 1);
-                }
+                pageRight(false);
             }
             else
                 setFullscreen(false, true);

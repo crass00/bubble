@@ -9,11 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import com.nkanaev.comics.R;
 import com.nkanaev.comics.fragment.ReaderFragment;
+import android.view.KeyEvent;
 
 import java.io.File;
 
 
 public class ReaderActivity extends AppCompatActivity {
+    private ReaderFragment reader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,12 +50,12 @@ public class ReaderActivity extends AppCompatActivity {
         }
     }
 
-    public void setFragment(Fragment fragment) {
+    public void setFragment(ReaderFragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_frame_reader, fragment)
                 .commit();
-
+        reader = fragment;
     }
 
     @Override
@@ -70,5 +72,28 @@ public class ReaderActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        int action = event.getAction();
+        int keyCode = event.getKeyCode();
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+            case KeyEvent.KEYCODE_PAGE_UP:
+            if (action == KeyEvent.ACTION_DOWN) {
+                reader.pageLeft(false);
+            }
+            return true;
+        case KeyEvent.KEYCODE_VOLUME_DOWN:
+        case KeyEvent.KEYCODE_PAGE_DOWN:
+            if (action == KeyEvent.ACTION_DOWN) {
+                reader.pageRight(false);
+            }
+            return true;
+        default:
+            return super.dispatchKeyEvent(event);
+        }
     }
 }
