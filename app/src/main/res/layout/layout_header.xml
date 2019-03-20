@@ -3,9 +3,4 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="@dimen/navigation_height">
-    <fragment android:name="com.nkanaev.comics.fragment.HeaderFragment"
-        android:id="@id/header"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 </LinearLayout>

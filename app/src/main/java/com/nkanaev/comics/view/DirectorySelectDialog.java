@@ -1,7 +1,7 @@
 package com.nkanaev.comics.view;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatDialog;
+import androidx.appcompat.app.AppCompatDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

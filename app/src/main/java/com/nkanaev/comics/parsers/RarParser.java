@@ -21,7 +21,7 @@ public class RarParser implements Parser {
     @Override
     public void parse(File file) throws IOException {
         try {
-            mArchive = new Archive(file);
+            mArchive = new Archive(file, null);
         }
         catch (RarException e) {
             throw new IOException("unable to open archive");

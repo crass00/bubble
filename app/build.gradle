@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
-
 android {
     compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.nkanaev.comics"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion 14
+        targetSdkVersion 28
 
         versionName "1.6.0"
         versionCode 7
@@ -30,18 +29,19 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.+'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.+'
+    implementation 'androidx.viewpager:viewpager:1.+'
+    implementation 'androidx.cardview:cardview:1.+'
+    implementation 'androidx.recyclerview:recyclerview:1.+'
+    implementation 'androidx.fragment:fragment:1.+'
+    implementation 'com.google.android.material:material:1.+'
+    implementation 'com.github.junrar:junrar:4.+'
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'org.apache.commons:commons-compress:1.16'
+    implementation 'org.apache.commons:commons-compress:1.12'
     implementation 'org.tukaani:xz:1.5'
-    implementation('com.github.junrar:junrar:0.7', {
-        exclude group: 'commons-logging', module: 'commons-logging'
-    })
-    implementation files('src/libs/cpdetector_1.0.10.jar')
-    implementation files('src/libs/antlr-2.7.4.jar')
-    implementation files('src/libs/chardet-1.0.jar')
-    implementation files('src/libs/jargs-1.0.jar')
+    implementation files('src\\libs\\antlr-2.7.4.jar')
+    implementation files('src\\libs\\chardet-1.0.jar')
+    implementation files('src\\libs\\cpdetector_1.0.10.jar')
+    implementation files('src\\libs\\jargs-1.0.jar')
 }

@@ -12,7 +12,7 @@ Android comic book reader.
 * Comics/manga reading mode
 * Library management with automatic bookmarks
 * Simple file browser
-* Free, open-source, no ads, gluten-free
+* Free, open-source, no ads
 
 <a href="https://f-droid.org/repository/browse/?fdid=com.nkanaev.comics">
   <img height="44" width="auto" src='https://upload.wikimedia.org/wikipedia/commons/0/0d/Get_it_on_F-Droid.svg'></img>
