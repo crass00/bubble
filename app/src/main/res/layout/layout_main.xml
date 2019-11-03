@@ -6,9 +6,11 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/lighter">
+
     <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -18,11 +20,15 @@
                 app:theme="@style/MyToolbarTheme"
                 app:contentInsetLeft="@dimen/toolbar_inset"
                 app:contentInsetStart="@dimen/toolbar_inset"/>
+
         <FrameLayout
                 android:id="@+id/content_frame"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@color/lighter"/>
+                android:background="@color/lighter">
+
+        </FrameLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
     <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_view"
@@ -34,5 +40,7 @@
             app:headerLayout="@layout/layout_header"
             app:menu="@menu/drawer"
             app:itemTextColor="@drawable/nav_item"
-            app:itemIconTint="@drawable/nav_item"/>
+            app:itemIconTint="@drawable/nav_item">
+
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

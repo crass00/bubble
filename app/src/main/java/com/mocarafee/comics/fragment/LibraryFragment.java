@@ -62,7 +62,8 @@ public class LibraryFragment extends Fragment
         super.onResume();
         Scanner.getInstance().addUpdateHandler(mUpdateHandler);
         if (Scanner.getInstance().isRunning()) {
-            setLoading(true);
+            //setLoading(true);
+            Toast.makeText(LibraryFragment.super.getContext(), "Welcome Back, Happy Reading", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -71,6 +72,7 @@ public class LibraryFragment extends Fragment
         Scanner.getInstance().removeUpdateHandler(mUpdateHandler);
         super.onPause();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -117,6 +119,11 @@ public class LibraryFragment extends Fragment
             mDirectorySelectDialog.show();
             return true;
         }
+        else
+            if (item.getItemId() == R.id.app_bar_refresh){
+                Toast.makeText(LibraryFragment.super.getContext(), "Scanning files..", Toast.LENGTH_SHORT).show();
+                Scanner.getInstance().scanLibrary();
+            }
         return super.onOptionsItemSelected(item);
     }
 
@@ -149,8 +156,10 @@ public class LibraryFragment extends Fragment
     @Override
     public void onRefresh() {
         if (!Scanner.getInstance().isRunning()) {
-            setLoading(true);
+            //setLoading(true);
+            Toast.makeText(LibraryFragment.super.getContext(), "Scanning files..", Toast.LENGTH_SHORT).show();
             Scanner.getInstance().scanLibrary();
+
         }
     }
 
