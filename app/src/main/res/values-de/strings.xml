@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bubble</string>
+    <string name="app_name">"Bubble + "</string>
     <string name="search">Suche</string>
     <string name="switch_action_negative">Nein</string>
     <string name="switch_action_positive">Ja</string>

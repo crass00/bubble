@@ -9,7 +9,7 @@
 		without any warrant
 	-->
 	
-    <string name="app_name">Bubble</string>
+    <string name="app_name">"Bubble + "</string>
     <string name="app_description">Lecteur de BDs pour Android</string>
 
     <string name="action_refresh">Rafraichir</string>

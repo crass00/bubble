@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.nkanaev.comics"
+        applicationId "com.mocarafee.comics"
         minSdkVersion 14
         targetSdkVersion 28
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bubble</string>
+    <string name="app_name">"Bubble + "</string>
     <string name="app_description">Cititor de benzi desenate pentru Android</string>
 
     <string name="action_refresh">Reactualizează</string>
