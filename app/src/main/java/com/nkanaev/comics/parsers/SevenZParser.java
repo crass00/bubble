@@ -14,7 +14,7 @@ import java.util.List;
 public class SevenZParser implements Parser {
     private List<SevenZEntry> mEntries;
 
-    private class SevenZEntry {
+    private static class SevenZEntry {
         final SevenZArchiveEntry entry;
         final byte[] bytes;
 

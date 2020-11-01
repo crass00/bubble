@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-public class CoverImageView extends ImageView {
+public class CoverImageView extends androidx.appcompat.widget.AppCompatImageView {
 
     public CoverImageView(Context context) {
         super(context);

@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
-                Log.v(TAG,"Permission is granted");
+                Log.v(TAG,"Permission is granted 23");
                 return true;
             } else {
 

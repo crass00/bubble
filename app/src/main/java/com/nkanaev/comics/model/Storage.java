@@ -35,7 +35,7 @@ public class Storage {
         };
     }
 
-    public class ComicDbHelper extends SQLiteOpenHelper {
+    public static class ComicDbHelper extends SQLiteOpenHelper {
         public static final int DATABASE_VERSION = 2;
         public static final String DATABASE_NAME = "comics.db";
 

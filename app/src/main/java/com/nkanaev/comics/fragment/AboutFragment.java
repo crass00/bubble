@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.nkanaev.comics.R;
 
 public class AboutFragment extends Fragment implements View.OnClickListener {
-    private class LibraryDescription {
+    private static class LibraryDescription {
         public final String name;
         public final String description;
         public final String license;
@@ -33,34 +33,34 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
     }
 
     private LibraryDescription[] mDescriptions = new LibraryDescription[]{
-        new LibraryDescription(
-                "Picasso",
-                "A powerful image downloading and caching library for Android",
-                "Apache Version 2.0",
-                "Square",
-                "https://github.com/square/picasso"
-        ),
-        new LibraryDescription(
-                "Junrar",
-                "Plain java unrar util",
-                "Unrar License",
-                "Edmund Wagner",
-                "https://github.com/edmund-wagner/junrar"
-        ),
-        new LibraryDescription(
-                "Apache Commons Compress",
-                "Defines an API for working with tar, zip and bzip2 files",
-                "Apache Version 2.0",
-                "Apache Software Foundation",
-                "https://commons.apache.org/proper/commons-compress/"
-        ),
-        new LibraryDescription(
-                "XZ Utils",
-                "XZ Utils is free general-purpose data compression software with a high compression ratio",
-                "Public Domain",
-                "Tukaani Developers",
-                "http://tukaani.org/xz/java.html"
-        ),
+            new LibraryDescription(
+                    "Picasso",
+                    "A powerful image downloading and caching library for Android",
+                    "Apache Version 2.0",
+                    "Square",
+                    "https://github.com/square/picasso"
+            ),
+            new LibraryDescription(
+                    "Junrar",
+                    "Plain java unrar util",
+                    "Unrar License",
+                    "Edmund Wagner",
+                    "https://github.com/edmund-wagner/junrar"
+            ),
+            new LibraryDescription(
+                    "Apache Commons Compress",
+                    "Defines an API for working with tar, zip and bzip2 files",
+                    "Apache Version 2.0",
+                    "Apache Software Foundation",
+                    "https://commons.apache.org/proper/commons-compress/"
+            ),
+            new LibraryDescription(
+                    "XZ Utils",
+                    "XZ Utils is free general-purpose data compression software with a high compression ratio",
+                    "Public Domain",
+                    "Tukaani Developers",
+                    "http://tukaani.org/xz/java.html"
+            ),
     };
 
     @Override
@@ -71,15 +71,15 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
 
         ((TextView) view.findViewById(R.id.aboutVersion)).setText(getVersionString());
 
-        for (int i = 0; i < mDescriptions.length; i++) {
+        for (LibraryDescription mDescription : mDescriptions) {
             View cardView = inflater.inflate(R.layout.card_deps, libsLayout, false);
 
-            ((TextView) cardView.findViewById(R.id.libraryName)).setText(mDescriptions[i].name);
-            ((TextView) cardView.findViewById(R.id.libraryCreator)).setText(mDescriptions[i].owner);
-            ((TextView) cardView.findViewById(R.id.libraryDescription)).setText(mDescriptions[i].description);
-            ((TextView) cardView.findViewById(R.id.libraryLicense)).setText(mDescriptions[i].license);
+            ((TextView) cardView.findViewById(R.id.libraryName)).setText(mDescription.name);
+            ((TextView) cardView.findViewById(R.id.libraryCreator)).setText(mDescription.owner);
+            ((TextView) cardView.findViewById(R.id.libraryDescription)).setText(mDescription.description);
+            ((TextView) cardView.findViewById(R.id.libraryLicense)).setText(mDescription.license);
 
-            cardView.setTag(mDescriptions[i].link);
+            cardView.setTag(mDescription.link);
             cardView.setOnClickListener(this);
             libsLayout.addView(cardView);
         }
