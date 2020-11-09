@@ -4,6 +4,11 @@
 
 Android comic book reader.
 
+## Aim of fork
+
+ * get comic books opening again via file explorers
+ * get new version put onto fdriod
+
 ## Features
 
 * Optimized for tablets
@@ -27,6 +32,8 @@ Android comic book reader.
 * Alez Boom (spanish translation)
 * Markus Dittmann (german translation)
 * George Netu (romanian translation)
+* Heimen Stoffels (dutch translation)
+* rubydongle (chinese translation & more)
 
 ## License
 
