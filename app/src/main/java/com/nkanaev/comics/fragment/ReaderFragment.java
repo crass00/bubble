@@ -72,7 +72,7 @@ public class ReaderFragment extends Fragment implements View.OnTouchListener {
     private Parser mParser;
     private Picasso mPicasso;
     private LocalComicHandler mComicHandler;
-    private SparseArray<Target> mTargets = new SparseArray<>();
+    private final SparseArray<Target> mTargets = new SparseArray<>();
 
     private Comic mComic;
     private Comic mNewComic;
@@ -189,10 +189,10 @@ public class ReaderFragment extends Fragment implements View.OnTouchListener {
                 mPicasso.resumeTag(ReaderFragment.this.getActivity());
             }
         });
-        mPageNavTextView = (TextView) mPageNavLayout.findViewById(R.id.pageNavTextView);
-        mViewPager = (ComicViewPager) view.findViewById(R.id.viewPager);
+        mPageNavTextView = mPageNavLayout.findViewById(R.id.pageNavTextView);
+        mViewPager = view.findViewById(R.id.viewPager);
         mViewPager.setAdapter(mPagerAdapter);
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(5);
         mViewPager.setOnTouchListener(this);
         mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
@@ -458,7 +458,7 @@ public class ReaderFragment extends Fragment implements View.OnTouchListener {
                 return;
 
             setVisibility(View.VISIBLE, View.GONE, View.GONE);
-            ImageView iv = (ImageView) layout.findViewById(R.id.pageImageView);
+            ImageView iv = layout.findViewById(R.id.pageImageView);
             iv.setImageBitmap(bitmap);
         }
 
@@ -470,7 +470,7 @@ public class ReaderFragment extends Fragment implements View.OnTouchListener {
 
             setVisibility(View.GONE, View.GONE, View.VISIBLE);
 
-            ImageButton ib = (ImageButton) layout.findViewById(R.id.reloadButton);
+            ImageButton ib = layout.findViewById(R.id.reloadButton);
             ib.setOnClickListener(this);
         }
 

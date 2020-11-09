@@ -23,7 +23,7 @@ package com.nkanaev.comics.managers;
  3. This notice may not be removed or altered from any source distribution.
  */
 
-import java.util.*;
+import java.util.Comparator;
 
 public abstract class NaturalOrderComparator implements Comparator
 {

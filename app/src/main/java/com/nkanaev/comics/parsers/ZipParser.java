@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -31,7 +30,7 @@ public class ZipParser implements Parser {
             }
         }
 
-        Collections.sort(mEntries, new NaturalOrderComparator() {
+        mEntries.sort(new NaturalOrderComparator() {
             @Override
             public String stringValue(Object o) {
                 return ((ZipEntry) o).getName();

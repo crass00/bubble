@@ -6,13 +6,18 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.6'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 
     defaultConfig {
         applicationId "com.nkanaev.comics"
-        minSdkVersion 17
-        targetSdkVersion 28
+        minSdkVersion 26
+        targetSdkVersion 29
 
         versionName "1.7.0"
         versionCode 7
@@ -48,7 +53,7 @@ dependencies {
 //    implementation 'com.android.support:design:22.2.1'
 //    implementation 'com.github.junrar:junrar:0.7'
 //    implementation ('com.github.junrar:junrar:4.0.0') {
-    implementation ('com.github.junrar:junrar:0.7') {
+    implementation ('com.github.junrar:junrar:7.4.0') {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
     implementation 'com.squareup.picasso:picasso:2.5.2'

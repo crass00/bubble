@@ -12,7 +12,7 @@ import com.nkanaev.comics.managers.Utils;
 
 
 public class RarParser implements Parser {
-    private ArrayList<FileHeader> mHeaders = new ArrayList<FileHeader>();
+    private final ArrayList<FileHeader> mHeaders = new ArrayList<>();
     private Archive mArchive;
     private File mCacheDir;
     private boolean mSolidFileExtracted = false;
@@ -38,7 +38,7 @@ public class RarParser implements Parser {
             header = mArchive.nextFileHeader();
         }
 
-        Collections.sort(mHeaders, new NaturalOrderComparator() {
+        mHeaders.sort(new NaturalOrderComparator() {
             @Override
             public String stringValue(Object o) {
                 return getName((FileHeader) o);

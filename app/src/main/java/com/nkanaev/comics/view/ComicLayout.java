@@ -2,7 +2,6 @@ package com.nkanaev.comics.view;
 
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.content.Context;
 
 

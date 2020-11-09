@@ -15,7 +15,7 @@ public class DirectoryListingManager {
     private final File mLibraryDir;
 
     public DirectoryListingManager(List<Comic> comics, String libraryDir) {
-        Collections.sort(comics, new Comparator<Comic>() {
+        comics.sort(new Comparator<Comic>() {
             @Override
             public int compare(Comic lhs, Comic rhs) {
                 String leftPath = lhs.getFile().getParentFile().getAbsolutePath();

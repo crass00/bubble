@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.ImageView;
-import android.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import static androidx.core.view.MenuItemCompat.*;
 
 public class LibraryBrowserFragment extends Fragment
         implements SearchView.OnQueryTextListener {
@@ -170,7 +172,7 @@ public class LibraryBrowserFragment extends Fragment
         }
 
         if (mRecentItems.size() > 0) {
-            Collections.sort(mRecentItems, new Comparator<Comic>() {
+            mRecentItems.sort(new Comparator<Comic>() {
                 @Override
                 public int compare(Comic lhs, Comic rhs) {
                     return lhs.updatedAt > rhs.updatedAt ? -1 : 1;

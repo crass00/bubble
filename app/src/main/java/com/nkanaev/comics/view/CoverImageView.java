@@ -3,7 +3,6 @@ package com.nkanaev.comics.view;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 public class CoverImageView extends androidx.appcompat.widget.AppCompatImageView {
 

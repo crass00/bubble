@@ -42,7 +42,7 @@ public class SevenZParser implements Parser {
             entry = sevenZFile.getNextEntry();
         }
 
-        Collections.sort(mEntries, new NaturalOrderComparator() {
+        mEntries.sort(new NaturalOrderComparator() {
             @Override
             public String stringValue(Object o) {
                 return ((SevenZEntry) o).entry.getName();
@@ -62,7 +62,7 @@ public class SevenZParser implements Parser {
 
     @Override
     public String getType() {
-        return "tar";
+        return "7z";
     }
 
     @Override

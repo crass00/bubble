@@ -48,11 +48,7 @@ public class DirectorySelectDialog
         mListView.setAdapter(new DirectoryListAdapter());
         mListView.setOnItemClickListener(this);
 
-        mDirectoryFilter = new FileFilter() {
-            public boolean accept(File file) {
-                return file.isDirectory();
-            }
-        };
+        mDirectoryFilter = File::isDirectory;
     }
 
     public void setCurrentDirectory(File path) {

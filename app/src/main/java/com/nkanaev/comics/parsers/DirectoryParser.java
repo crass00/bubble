@@ -32,7 +32,7 @@ public class DirectoryParser implements Parser {
             }
         }
 
-        Collections.sort(mFiles, new NaturalOrderComparator() {
+        mFiles.sort(new NaturalOrderComparator() {
             @Override
             public String stringValue(Object o) {
                 return ((File) o).getName();

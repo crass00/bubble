@@ -11,7 +11,6 @@ import android.view.*;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
-import android.widget.ImageView;
 import android.widget.OverScroller;
 
 import androidx.core.view.ViewCompat;

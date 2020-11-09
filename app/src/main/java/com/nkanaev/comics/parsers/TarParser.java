@@ -14,7 +14,7 @@ import java.util.List;
 public class TarParser implements Parser {
     private List<TarEntry> mEntries;
 
-    private class TarEntry {
+    private static class TarEntry {
         final TarArchiveEntry entry;
         final byte[] bytes;
 
@@ -41,7 +41,7 @@ public class TarParser implements Parser {
             entry = is.getNextTarEntry();
         }
 
-        Collections.sort(mEntries, new NaturalOrderComparator() {
+        mEntries.sort(new NaturalOrderComparator() {
             @Override
             public String stringValue(Object o) {
                 return ((TarEntry) o).entry.getName();
