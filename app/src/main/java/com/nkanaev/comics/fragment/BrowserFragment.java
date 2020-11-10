@@ -88,19 +88,13 @@ public class BrowserFragment extends Fragment
         Log.d("ruby", "set current dir:"+ dir.getAbsolutePath());
         mCurrentDir = dir;
         mCurrentDir = new File(String.valueOf(dir.getAbsoluteFile()));
-        for(File file : mCurrentDir.listFiles()) {
-            Log.d("ruby", "file:"+ file.getName());
 
-        }
         ArrayList<File> subdirs = new ArrayList<>();
         if (!mCurrentDir.getAbsolutePath().equals(mRootDir.getAbsolutePath())) {
             subdirs.add(mCurrentDir.getParentFile());
         }
         File[] files = mCurrentDir.listFiles();
-        for(File file : files) {
-            Log.d("ruby", "file:"+ file.getName());
 
-        }
         if (files != null) {
             for (File f : files) {
                 if (f.isDirectory() || Utils.isArchive(f.getName())) {
