@@ -1,8 +1,8 @@
 package com.nkanaev.comics.view;
 
+import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import android.content.Context;
 
 
 public class ComicLayout extends LinearLayout {

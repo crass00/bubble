@@ -20,7 +20,6 @@ import androidx.fragment.app.Fragment;
 import com.nkanaev.comics.R;
 import com.nkanaev.comics.activity.MainActivity;
 import com.nkanaev.comics.managers.LocalCoverHandler;
-import com.nkanaev.comics.managers.Utils;
 import com.nkanaev.comics.model.Comic;
 import com.nkanaev.comics.model.Storage;
 import com.squareup.picasso.Picasso;
@@ -68,9 +67,6 @@ public class HeaderFragment extends Fragment
     }
 
     private void createBitmap() {
-        if (!Utils.isJellyBeanMR1orLater())
-            return;
-
         mIsRunning = true;
 
         ArrayList<Comic> comics = Storage.getStorage(getActivity()).listComics();

@@ -1,11 +1,11 @@
 package com.nkanaev.comics.managers;
 
 import android.text.TextUtils;
+
 import com.nkanaev.comics.model.Comic;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 

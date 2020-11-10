@@ -1,18 +1,26 @@
 package com.nkanaev.comics.managers;
 
-import java.io.File;
-import java.lang.ref.WeakReference;
-import java.util.*;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
+
 import com.nkanaev.comics.Constants;
 import com.nkanaev.comics.MainApplication;
-import com.nkanaev.comics.model.*;
+import com.nkanaev.comics.model.Comic;
+import com.nkanaev.comics.model.Storage;
 import com.nkanaev.comics.parsers.Parser;
 import com.nkanaev.comics.parsers.ParserFactory;
+
+import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Scanner {
     private Thread mUpdateThread;

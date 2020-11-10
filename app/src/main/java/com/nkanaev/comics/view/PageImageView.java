@@ -5,10 +5,13 @@ import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.AttributeSet;
-import android.view.*;
+import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
@@ -285,9 +288,7 @@ public class PageImageView extends androidx.appcompat.widget.AppCompatImageView 
     @Override
     public void setImageMatrix(Matrix matrix) {
         super.setImageMatrix(fixMatrix(matrix));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            postInvalidate();
-        }
+        postInvalidate();
     }
 
     private Matrix fixMatrix(Matrix matrix) {

@@ -1,7 +1,8 @@
 package com.nkanaev.comics.managers;
 
 import android.net.Uri;
-import com.nkanaev.comics.parsers.*;
+
+import com.nkanaev.comics.parsers.Parser;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Request;
 import com.squareup.picasso.RequestHandler;

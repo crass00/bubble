@@ -3,7 +3,6 @@ package com.nkanaev.comics.activity;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -26,7 +25,6 @@ import com.nkanaev.comics.fragment.HeaderFragment;
 import com.nkanaev.comics.fragment.LibraryFragment;
 import com.nkanaev.comics.managers.LocalCoverHandler;
 import com.nkanaev.comics.managers.Scanner;
-import com.nkanaev.comics.managers.Utils;
 import com.squareup.picasso.Picasso;
 
 
@@ -49,9 +47,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         setSupportActionBar(toolbar);
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        if (Utils.isLollipopOrLater()) {
-            toolbar.setElevation(8);
-        }
+        toolbar.setElevation(8);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -201,23 +197,15 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
 
 
-    public  boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= 23) {
+    public void isStoragePermissionGranted() {
 
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                Log.v(TAG,"Permission is granted");
-                return true;
-            } else {
-
-                Log.v(TAG,"Permission is revoked");
-                ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        }
-        else { //permission is automatically granted on sdk<23 upon installation
+        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED) {
             Log.v(TAG,"Permission is granted");
-            return true;
+        } else {
+
+            Log.v(TAG,"Permission is revoked");
+            ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         }
     }
 }

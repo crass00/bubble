@@ -1,14 +1,17 @@
 package com.nkanaev.comics.parsers;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
 import com.github.junrar.rarfile.FileHeader;
 import com.nkanaev.comics.managers.NaturalOrderComparator;
 import com.nkanaev.comics.managers.Utils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 
 public class RarParser implements Parser {

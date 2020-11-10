@@ -28,6 +28,9 @@ android {
             applicationIdSuffix '.debug'
             versionNameSuffix '-DEBUG'
         }
+        release {
+            minifyEnabled false
+        }
     }
 
     packagingOptions {

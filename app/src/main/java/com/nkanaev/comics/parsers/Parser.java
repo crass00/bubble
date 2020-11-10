@@ -1,8 +1,8 @@
 package com.nkanaev.comics.parsers;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.File;
 
 
 public interface Parser {

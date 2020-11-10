@@ -1,14 +1,16 @@
 package com.nkanaev.comics.managers;
 
 import android.app.ActivityManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.security.MessageDigest;
 
 import static android.content.Context.ACTIVITY_SERVICE;
@@ -20,35 +22,11 @@ public final class Utils {
         return Math.round(displayMetrics.widthPixels / displayMetrics.density);
     }
 
-    public static boolean isIceCreamSandwitchOrLater() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
-    }
-
-    public static boolean isHoneycombOrLater() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
-    }
-
-    public static boolean isHoneycombMR1orLater() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1;
-    }
-
-    public static boolean isJellyBeanMR1orLater() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
-    }
-
-    public static boolean isKitKatOrLater() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
-    }
-
-    public static boolean isLollipopOrLater() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
-    }
-
     public static int getHeapSize(Context context) {
         ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
         boolean isLargeHeap = (context.getApplicationInfo().flags & ApplicationInfo.FLAG_LARGE_HEAP) != 0;
         int memoryClass = am.getMemoryClass();
-        if (isLargeHeap && Utils.isHoneycombOrLater()) {
+        if (isLargeHeap) {
             memoryClass = am.getLargeMemoryClass();
         }
         return 1024 * memoryClass;
@@ -56,12 +34,9 @@ public final class Utils {
 
     public static int calculateBitmapSize(Bitmap bitmap) {
         int sizeInBytes;
-        if (Utils.isHoneycombMR1orLater()) {
+
             sizeInBytes = bitmap.getByteCount();
-        }
-        else {
-            sizeInBytes = bitmap.getRowBytes() * bitmap.getHeight();
-        }
+
         return sizeInBytes / 1024;
     }
 
