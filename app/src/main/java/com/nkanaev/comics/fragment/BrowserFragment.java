@@ -134,7 +134,7 @@ public class BrowserFragment extends Fragment
         ImageView view = (ImageView) convertView.findViewById(R.id.directory_row_icon);
         int colorRes = R.color.circle_grey;
         if (file.isDirectory()) {
-            view.setImageResource(R.drawable.ic_folder_white_24dp);
+            view.setImageResource(R.drawable.ic_baseline_folder_24_white);
         }
         else {
             view.setImageResource(R.drawable.ic_file_document_box_white_24dp);

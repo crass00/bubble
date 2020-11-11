@@ -4,7 +4,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menuLibrarySetDir"
           android:title="@string/action_view_mode"
-          android:icon="@drawable/ic_folder_white_24dp"
+          android:icon="@drawable/ic_baseline_folder_24_white"
           app:showAsAction="always">
     </item>
 </menu>

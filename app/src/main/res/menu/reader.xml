@@ -4,7 +4,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_reader_reading"
           android:title="@string/action_reading_mode"
-          android:icon="@drawable/ic_book_open_white_24dp"
+          android:icon="@drawable/ic_baseline_menu_book_24_white"
           app:showAsAction="always">
         <menu>
             <group android:checkableBehavior="single">
@@ -17,7 +17,7 @@
     </item>
     <item android:id="@+id/menu_reader_aspect_ratio"
           android:title="@string/action_view_mode"
-          android:icon="@drawable/ic_aspect_ratio_white_24dp"
+          android:icon="@drawable/ic_baseline_aspect_ratio_24_white"
           app:showAsAction="always">
         <menu>
             <group android:checkableBehavior="single">
